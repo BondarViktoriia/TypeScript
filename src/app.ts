@@ -129,3 +129,77 @@ function add(a:string|number,b:string|number) {
 }
 
 
+// Generics //////
+
+// let arr: Array<string | number>;
+let arr: (string | number)[];
+arr = ['string', 15];
+
+const promise: Promise<string> = new Promise((resolve) => {
+    resolve("String")
+})
+promise.then(() => {
+    
+});
+    
+    
+(() => {
+        async function promiseFoo(): Promise<string> {
+            return "String 2";
+    }
+    promiseFoo().then((data)=>console.log(data))
+})()
+
+// //////////////Generic function-method/////////////////
+
+// Обьединение двух объектов
+// function merge <T,U>(objA: T, objB: U) {
+//     return Object.assign({},objA,objB)
+// }
+
+// type Worke = {
+//     name: string;
+// }
+// type AditionalFields = {
+//     age: number;
+// }
+
+// const toMergeOne = {
+//     name: "Fusun"
+// };
+// const toMergeTwo = {
+//     age:1
+// }
+// const merged = merge<Worke,AditionalFields>(toMergeOne, toMergeTwo) 
+// merged.name;
+
+// ///////Extends -для ограничения типа////////////////
+// Мы можем расширять generics 
+
+function merge <T extends object,U extends object>(objA: T, objB: U) {
+    return Object.assign({},objA,objB)
+}
+
+const toMergeOne = {
+    name: "Fusun"
+};
+const toMergeTwo = {
+    age:1
+}
+const merged = merge(toMergeOne, toMergeTwo) 
+merged.name;
+
+//
+interface ILength{
+    length:number
+}
+
+function getLength <T extends ILength> (str:T):number {
+    return str.length
+}
+const obj = {
+    length:20,
+}
+getLength("string")
+getLength([])
+getLength(obj)
