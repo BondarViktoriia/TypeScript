@@ -79,3 +79,19 @@ if (input) {
     const newInput = input as HTMLInputElement;
     newInput.value
 }
+
+//  /////////////////////Index Properties///////////
+
+// Это важно когда мы не знаем какие поля будут в объекте
+
+interface Person{
+    name: string;
+    age: number;
+    [x: string]: string | number;
+}
+const user: Person = {
+    name: 'Fusun',
+    gender: "female",
+    country: 'Ukraine',
+    age: 1,
+}
