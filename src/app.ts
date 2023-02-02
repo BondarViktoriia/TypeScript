@@ -95,3 +95,37 @@ const user: Person = {
     country: 'Ukraine',
     age: 1,
 }
+
+///////Optional Chaining///////
+
+interface Animal{
+    name: string;
+    additionalInfo?: {
+        someInfo: string;
+    }
+}
+
+const cat : Animal = {
+    name: "Fusun",
+}
+cat?.additionalInfo?.someInfo
+
+// //////////Nullish Coalescing/////////////// (Нулевое слияние)
+// Только если в userInput явно указан null или underfined, только тогда вернеться "DEFAULT"
+const userInput = null;
+const store = userInput ?? "DEFAULT"
+
+console.log(store)
+
+// Перегрузка операторов (function overloads)
+// В TS это как уточнение типа для функции.
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a:string|number,b:string|number) {
+    if (typeof a === "string" || typeof b === "string") {
+        return a.toString( )+ b.toString()
+    }
+    return a + b;
+}
+
+
