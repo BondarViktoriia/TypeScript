@@ -89,12 +89,12 @@ interface Person{
     age: number;
     [x: string]: string | number;
 }
-const user: Person = {
-    name: 'Fusun',
-    gender: "female",
-    country: 'Ukraine',
-    age: 1,
-}
+// const user: Person = {
+//     name: 'Fusun',
+//     gender: "female",
+//     country: 'Ukraine',
+//     age: 1,
+// }
 
 ///////Optional Chaining///////
 
@@ -176,9 +176,9 @@ promise.then(() => {
 // ///////Extends -для ограничения типа////////////////
 // Мы можем расширять generics 
 
-function merge <T extends object,U extends object>(objA: T, objB: U) {
-    return Object.assign({},objA,objB)
-}
+// function merge <T extends object,U extends object>(objA: T, objB: U) {
+//     return Object.assign({},objA,objB)
+// }
 
 const toMergeOne = {
     name: "Fusun"
